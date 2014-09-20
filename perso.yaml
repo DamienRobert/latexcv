@@ -1,0 +1,1141 @@
+---
+:articles: #{{{1
+  #began 02/2014, eprint 06/2014
+  :DRarithmetic:
+    :webname: arithmetic
+    :texname: arithmetic/arithmetic
+    :title: Arithmetic on Abelian and Kummer Varieties
+    :author: [':lubicz', ':me']
+    :date: 2014-06
+    :keyword: preprint
+    :links:
+      :HAL: hal-01057467
+      :eprint: 2014/493
+
+  #began 12/2012, sent to Ants 02/2014, reviews 05/2014, sent to lms 05/2014, review 07/2014
+  :DRisogenykernel:
+    :webname: rational
+    :texname: rational/rational_web
+    :title: Computing separable isogenies in quasi-optimal time
+    :author: [':lubicz', ':me']
+    :date: 2014-06
+    :keyword: preprint
+    :links:
+      :HAL: hal-00954895
+      :arxiv: "1402.3628"
+
+  #began 02/2011
+  :DRAVIsogeniesPaper:
+    :webname: AVIsogenies-paper
+    :title: On the Practical Computation of Isogenies of Jacobian Surfaces
+    :author: [':bisson', ':cosset', ':me']
+    :url: http://avisogenies.gforge.inria.fr
+    :keyword: notpublic
+    :note: Article explaining the computations done in the AVIsogenies package, found in the source code.
+    :date: 2010
+
+  #Began 04/2010, submitted to JSC 03/2013, Answer to reviews 01/2014
+  #Accepted 06/2014
+  :DRoptimal:
+    :webname: optimal
+    :texname: optimal/optimal
+    :title: A generalisation of Miller's algorithm and applications to pairing computations on abelian varieties
+    :author: [':lubicz', ':me']
+    :date: 2014-06
+    #:prepubli: Accepted for publication at Journal of Symbolic Computation
+    :prepubli: Journal of Symbolic Computation
+    :links:
+      :doi: 10.1016/j.jsc.2014.08.001
+      :HAL: hal-00806923
+      :eprint: 2013/192
+
+  #began 01/2011, sent to mathcomp 03/2011, eprint 03/2011, review received 06/2013, updated version sent 10/2013
+  :DRniveau:
+    :webname: niveau
+    :texname: niveau/niveau
+    :title: An algorithm for computing (l,l)-isogenies in polynomial time on Jacobians of hyperelliptic curves of genus 2
+    :author: [':cosset', ':me']
+    :date: 2013-10
+    :prepubli: Mathematics of Computation
+    :links:
+      :HAL: hal-00578991
+      :eprint: 2011/143
+    :tex:
+      :title: An algorithm for computing $(\ell,\ell)$-isogenies in polynomial time on Jacobians of hyperelliptic curves of genus~$2$
+
+  # began: 09/2010, sent to ANTS 02/2012, revised version 05/2012, accepted at ants 07/2012, post ants version 08/2012 with ref to longer version on eprint (08/2012), Proceedings: http://msp.org/obs/2013/1/p22.xhtml, Published 14 November 2013
+  :DRclassCRT:
+    :webname:  classCRT
+    :texname: classCRT/writeuplong
+    :title: Improved CRT Algorithm for Class Polynomials in Genus 2
+    :bibtype: :inproceedings
+    :post_title: "(long version)"
+    :author: [':lauter', ':me']
+    :date: 2013-11
+    :publi: "LINK(ANTS X Conference,http://math.ucsd.edu/~kedlaya/ants10/) — Proceedings"
+    :links:
+      :doi: 10.2140/obs.2013.1.437
+      :Slides:
+        :webname: 2012-07-ANTS-SanDiego
+        :date: 2012-07
+        :length: 30min
+        :where: San Diego
+      :HAL: hal-00734450
+      :eprint: 2012/443
+    :extra_links: "LINK(Submitted short version,http://math.ucsd.edu/~kedlaya/ants10/paper-lauter.html), LINK(Updated short version,EXPAND(:webpublis)articles/classCRT_short.pdf)"
+    :tex:
+      :title: Improved {CRT} Algorithm for Class Polynomials in Genus~2
+    :bibtex:
+      :pubtype: conference
+      :journal: ANTS
+      :booktitle: ANTS X — Proceedings of the Tenth Algorithmic Number Theory Symposium
+      :editor: Howe, Everett W. and Kedlaya, Kiran S.
+      :publisher: Mathematical Sciences Publisher
+      :address: Berkeley
+      :series: The Open Book Series
+      :volume: 1
+      :pages: 437–461
+      :origurl: http://msp.org/obs/2013/1/p22.xhtml
+
+  #began 05/2009, Soumis à « Compositio Mathematica » en Mars~2010, première version sur arxiv: 12/01/2010, sur hal 13/01/2010, première short review 12/2010, accepté 11/2011, electronic version on compositio 10/07/2012, published 09/2012
+  :DRisogenies:
+    :webname: isogenies
+    :texname: isogenies/isogenies
+    :author: [':lubicz', ':me']
+    :title: Computing isogenies between abelian varieties
+    :bibtype: :article
+    :date: 2012-09
+    :publi: LINK(:compositio)
+    :links:
+      :doi: 10.1112/S0010437X12000243
+      :HAL: hal-00446062
+      :arxiv: 1001.2016 math.AG
+    :bibtex:
+      :journal: Compositio Mathematica
+      :pages: 1483--1515
+      :volume: 148
+      :number: 05
+
+  #began 12/2008, version sur arxiv/hal: 24/10/2009, soumis à LMS le 05/2009, soumis à Journal Algebra 10/2010, publié le 10/2011
+  :DRmodular:
+    :webname: modular
+    :texname: modular/modular
+    :author: [':faugere', ':lubicz', ':me']
+    :title: Computing modular correspondences for abelian varieties
+    :bibtype: :article
+    :publi: "LINK(Journal of algebra,http://www.elsevier.com/locate/jalgebra)"
+    :date: 2011-10
+    :links:
+      :doi: 10.1016/j.jalgebra.2011.06.031
+      :HAL: hal-00426338
+      :arxiv: 0910.4668 cs.SC
+    :bibtex:
+      :journal: Journal of Algebra
+      :volume: 343
+      :number: 1
+      :pages: 248--277
+
+  #began 08/2009, soumis ANTS 02/2010, review 04/2010, corrected version 05/2010, ants conf 07/2010
+  :DRpairing:
+    :webname: pairings
+    :texname: pairing/pairings
+    :title: Efficient pairing computation with theta functions
+    :bibtype: :inproceedings
+    :author: [':lubicz', ':me']
+    :date: 2010-07
+    :publi: "LINK(ANTS IX conference,http://ants9.org/) — Proceedings in LNCS"
+    :links:
+      :doi: 10.1007/978-3-642-14518-6_21
+      :Slides: 
+        :webname: 2010-07-ANTS-Nancy
+        :length: 30min
+        :where: Nancy
+      :HAL: hal-00528944
+    :bibtex:
+      :editor: Hanrot, Guillaume and Morain, François and Thomé, Emmanuel
+      :journaltitle: Algorithmic Number Theory
+      :note: 9th International Symposium, Nancy, France, ANTS-IX, July 19-23, 2010, Proceedings
+      :series: Lecture Notes in Comput. Sci.
+      :volume: 6197
+      :publisher: Springer--Verlag
+
+##########################################################################
+
+:reports: #{{{1
+  :DRreportClassCRT:
+    :webname: 2013-04-class_poly_g2
+    :title: Computing class polynomials in genus 2
+    :author: [':enge', ':me']
+    :date: 2013-04
+    :publi: "LINK(DGA Report,http://www.defense.gouv.fr/dga/)"
+    :tex:
+      :title: Computing class polynomials in genus~$2$
+
+##########################################################################
+
+:teaching-talks: #{{{1
+  :DRtalkECCSummerSchool:
+    :webname: 2011-09-ECCSummerSchool
+    :title: Isogenies and endomorphism rings of elliptic curves
+    :date: 2011-09-15
+    :length: 2h30
+    :what: "LINK(ECC 2011,http://ecc2011.loria.fr) LINK(Summer School,http://ecc2011.loria.fr/school.html)"
+    :where: Nancy
+
+##########################################################################
+
+:vulgarisation-talks: #{{{1
+  :DRtalkMonique:
+    :webname: 2014-04-Monique
+    :title: Algorithmic number theory and cryptography
+    :date: 2014-04
+    :length: 30min
+    :what:
+      :en: Team presentation for the director of Inria Bordeaux
+      :fr: Présentation de l'équipe auprès de la directrice d'Inria Bordeaux
+    :where: Inria Bordeaux
+
+  :DRtalkInriaCP:
+    :webname: 2013-12-Inria-Bordeaux-CP
+    :title: Algorithmic number theory and cryptography
+    :date: 2013-12
+    :length: 30min
+    :what:
+      :en: Presentation of my research themes to the Inria Bordeaux Scientific commitee
+      :fr: Présentation de mes thèmes de recherche pour le Comité des Projets d'Inria Bordeaux
+    :where: Inria Bordeaux
+
+  :DRtalkMacisaLirima:
+    :webname: 2013-09-Macisa-Lirima-Rabat
+    :title: MACISA — Mathematics applied to cryptology and information security in Africa
+    :date: 2013-09
+    :length: 30min
+    :what:
+      :en: Presentation of the MACISA team for the LINK(Lirima,http://lirima.org) days
+      :fr: Présentation de l'équipe MACISA dans le cadre des journées du LINK(Lirima,http://lirima.org)
+    :where: Rabat
+
+  :DRtalkMinesNancy:
+    :webname: 2013-04-Labri-MinesNancy-Bordeaux
+    :title: Petit panorama des mathématiques de la cryptologie
+    :date: 2013-04
+    :what:
+      :en: Presentation for the students in LINK(Mines de Nancy,http://www.mines.inpl-nancy.fr)
+      :fr: Présentation aux étudiants des LINK(Mines de Nancy,http://www.mines.inpl-nancy.fr)
+    :where: Labri, Bordeaux
+
+  :DRtalkPrixThese:
+    :webname: 2012-02-PrixTheseLorraine-Metz
+    :title: Panorama de la cryptographie sur les courbes elliptiques
+    :date: 2012-02
+    :what:
+      :en: Lorraine Phd LINK(prize ceremony,http://net-education.cr-lorraine.fr/jahia/Jahia/pid/194)
+      :fr: Cérémonie du LINK(prix de thèse,http://net-education.cr-lorraine.fr/jahia/Jahia/pid/194) régional
+    :where: Conseil général de Lorraine, Metz
+    :text:
+      :info:
+        :en: "LINK(More info,EXPAND(:webpublis)index.html#phd-thesis)."
+        :fr: "LINK(Plus d'infos,EXPAND(:webpublis)index.fr.html#phd-thesis)."
+
+##########################################################################
+
+:invited-talks: #{{{1
+
+  :DRtalkModuli2014:
+    :webfile: publications/notes/2014-06-Rennes-Moduli.pdf
+    :title: Isogenies between abelian varieties
+    :post_title: "(Notes)"
+    :date: 2014-06
+    :length: 1h
+    :what: LINK(:peace) conference LINK(Effective moduli spaces and applications to cryptography,http://www.lebesgue.fr/content/sem2014-espmod-effectifs)
+    :keyword: blackboard-talk
+    :where: Rennes
+
+  :DRtalkAscona2014:
+    :webname: 2014-05-Ascona
+    :title: Pairings on abelian varieties and the Discrete Logarithm Problem
+    :date: 2014-04
+    :length: 1h
+    :what: Discrete Logarithm Problem Conference LINK(DLP 2014,http://dlp2014.epfl.ch/)
+    :where: Ascona, Suisse
+
+  :DRtalkGeocrypt:
+    :webname: 2011-06-Geocrypt-Bastia
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2011-06-23
+    :length: 1h
+    :what: LINK(Geocrypt 2011,http://iml.univ-mrs.fr/ati/GeoCrypt2011/) (Geometry and cryptography conference)
+    :where: Bastia
+
+  :DRtalkECC:
+    :webname: 2010-10-ECC-Redmond
+    :title: Generalizing Vélu's formulas and some applications
+    :date: 2010-10
+    :length: 1h
+    :what: LINK(ECC 2010,http://2010.eccworkshop.org/abstracts.html), 25th anniversary of elliptic curves computation
+    :where: Redmond, USA
+    :extra_links: "LINK(Video link,http://research.microsoft.com/apps/video/dl.aspx?id=140627)"
+
+  :DRtalkMoscow:
+    :webname: 2010-05-Moscou
+    :title: A Vélu's like formula for computing isogenies on Abelian Varieties
+    :date: 2010-05
+    :length: 1h
+    :what: LINK(Conférence Algorithmique et Arithmétique avec applications à la cryptographie,http://www.mccme.ru/lifr/zykin/fr/arithalgo/index.html)
+    :where:
+      :en: Moscow, Russia
+      :fr: Moscou, Russie
+
+##########################################################################
+
+:talks: #{{{1
+  :DRtalkGrenoble2014:
+    :webname: 2014-04-Grenoble
+    :title: Arithmetic on Abelian and Kummer varieties
+    :date: 2014-04
+    :length: 1h
+    :what: Number Theory Seminar
+    :keyword: blackboard-talk
+    :info: "On blackboard."
+    :where: Institut Fourier, Grenoble
+
+  :DRtalkNeuchatel2014:
+    :webname: 2014-03-Neuchatel
+    :title: Arithmetic on abelian varieties and related topics
+    :date: 2014-03
+    :length: 1h
+    :what:
+      :en: Seminar in Coding Theory and Cryptography of the University of Zurich and the University of Neuchâtel
+      :fr: Séminaire Code et Cryptographie de l'Université de Zurich et l'Université de Neuchâtel
+    :where: Neuchâtel, Suisse
+
+  :DRtalkSimpatic2014:
+    :webname: 2014-01-Caen
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2014-01
+    :length: 1h
+    :what: LINK(:simpatic) meeting
+    :where: Caen
+
+  :DRtalkPeaceRennes2013:
+    :webname: 2013-12-Rennes-Peace
+    :title: Arithmetic on Abelian and Kummer varieties
+    :date: 2013-12
+    :length: 30min
+    :what: LINK(:peace) meeting
+    :where: Rennes
+
+  :DRtalkPeaceRennes2013:
+    :webname: 2013-12-Rennes-Peace
+    :title: Arithmetic on Abelian and Kummer varieties
+    :date: 2013-12
+    :length: 30min
+    :what: LINK(:peace) meeting
+    :where: Rennes
+
+  :DRtalkLfant2013:
+    :webname: 2013-11-Lfant
+    :title: On isogenies and polarisations
+    :date: 2013-11
+    :length: 1h
+    :what: LINK(LFANT Seminar,http://www.math.u-bordeaux1.fr/~enge/lfant/index.php?category=seminar&page=2013)
+    :where: Bordeaux
+
+  :DRtalkGeocryptCyclic2013:
+    :webname: 2013-10-Geocrypt-Tahiti
+    :title: On isogenies and polarisations
+    :date: 2013-10
+    :length: 30min
+    :what: LINK(Geocrypt 2013,http://iml.univ-mrs.fr/ati/geocrypt2013)
+    :where: Tahiti
+
+  :DRtalkMicrosoftIsogeny2013:
+    :webname: 2013-08-Microsoft-Isogeny
+    :title: On isogenies between abelian varieties
+    :date: 2013-08
+    :length: 45min
+    :what: :msr
+    :where: Redmond, USA
+
+  :DRtalkMicrosoftPairing2013:
+    :webname: 2013-08-Microsoft-Pairing
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2013-08
+    :length: 1h
+    :what: :msr
+    :where: Redmond, USA
+
+  :DRtalkAGCT2013:
+    :webname: 2013-06-AGCT-Marseille
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2013-06
+    :length: 30min
+    :what: LINK(AGCT 14,http://iml.univ-mrs.fr/ati/conferences/AGCT-14_2013/)
+    :where: Luminy
+
+  :DRtalkLausanne2013:
+    :webname: 2013-05-Lausanne
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2013-05
+    :length: 1h
+    :what: LINK(Lacal,http://lacal.epfl.ch/)
+    :where: Lausanne
+
+  :DRtalkGrenoble2013:
+    :webname: 2013-04-Grenoble
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2013-04
+    :length: 1h
+    :what: LINK(CCIS seminar,http://www-verimag.imag.fr/~async/CCIS/index.php)
+    :where: Grenoble
+
+  :DRtalkPeace2013:
+    :webfile: publications/notes/2013-04-Peace-Paris-Cyclic-Isogenies.pdf
+    :title: Computing cyclic isogenies using real multiplication
+    :post_title: "(Notes)"
+    :date: 2013-04
+    :keyword: blackboard-talk
+    :length: 1h
+    :what: LINK(:peace) meeting
+    :where: Paris
+    :bibtex:
+      :note: Notes
+
+  :DRtalkPeace2012:
+    :webname: 2012-11-Peace-Paris
+    :title: Computing rational isogenies from the equations of the kernel
+    :date: 2012-11
+    :length: 30min
+    :what: LINK(:peace) meeting
+    :where: Paris
+
+  :DRtalkMSR2012:
+    :webname: 2012-08-Microsoft
+    :title: Improved CRT Algorithm for class polynomials in genus 2
+    :date: 2012-08
+    :length: 1h
+    :what: :msr
+    :where: Redmond, USA
+    :bib:
+      :title: Improved CRT Algorithm for class polynomials in genus~$2$
+
+  :DRtalkBordeaux2012:
+    :webname: 2012-05-Bordeaux
+    :title: About the CRT method to compute class polynomials in dimension 2
+    :date: 2012-05
+    :length: 1h
+    :what: LINK(INRIA Team LFANT seminar,http://www.math.u-bordeaux1.fr/~aenge/lfant/index.php?category=seminar&page=2011)
+    :where: Bordeaux
+    :tex:
+      :title: About the CRT method to compute class polynomials in dimension~$2$
+
+  :DRtalkCaen:
+    :webname: 2012-03-Caen
+    :title: Algorithms on abelian varieties for cryptography
+    :date: 2012-03
+    :length: 1h
+    :what: LINK(Caen's Cryptographic Seminar,http://math.unicaen.fr/~castel/seminaire_crypto/seminaire.html)
+    :where: Caen
+
+  :DRtalkLIX2012:
+    :webname: 2012-01-LIX-Paris
+    :title: Algorithms on abelian varieties for cryptography
+    :date: 2012-01
+    :length: 2h
+    :what: LINK(INRIA Team Grace Seminar,http://www.lix.polytechnique.fr/cryptologie/)
+    :where: LIX, École Polytechnique, Paris
+
+  :DRtalkTelecom:
+    :webname: 2012-01-Telecom-Paris
+    :title: Algorithms on abelian varieties for cryptography
+    :date: 2012-01
+    :length: 1h
+    :what: LINK(\"Butte aux cailles\" Seminar,http://perso.telecom-paristech.fr/~flori/gtbac/)
+    :where: Télécom ParisTech, Paris
+
+  :DRtalkMontpellier:
+    :webname: 2011-11-Montpellier
+    :title: "Public key cryptography with abelian varieties: results and challenges"
+    :date: 2011-11
+    :length: 1h
+    :where: Montpellier
+    :what: LINK(ARITH Seminar,https://www2.lirmm.fr/arith/wiki/GT/DamienRobert-CryptographieEtCourbesElliptiques-Pr%C3%A9vuPourNovembre2011?setskin=wiki)
+
+  :DRtalkBordeauxPairing2:
+    :webname: 2011-09-Bordeaux
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2011-09
+    :length: 1h
+    :what: LINK(Séminaire de théorie des nombres,http://www.math.u-bordeaux1.fr/maths/spip.php?article44)
+    :where: Bordeaux
+
+  :DRtalkC2:
+    :webname: 2011-04-C2-Oleron
+    :title: About the CRT method to compute class polynomials in dimension~2
+    :date: 2011-04
+    :length: 1h
+    :what: LINK(Journées Codage et Cryptographie,http://www.lirmm.fr/c2/)
+    :where: Oléron
+
+  :DRtalkBordeauxPhDSeminar:
+    :webname: 2011-03-Bordeaux
+    :title: Cryptology, elliptic curves and number theory
+    :date: 2011-03
+    :length: 1h
+    :what:
+      :en: Number Theory PhD Students' seminar
+      :fr: Séminaire des doctorants en théorie des nombres
+    :where: Bordeaux
+
+  :DRtalkMarseillePairings:
+    :webname: 2011-02-Marseille_pairings
+    :title: Computing optimal pairings on abelian varieties with theta functions
+    :date: 2011-02
+    :length: 1h
+    :what: LINK(Séminaire Arithmétique et Théorie de l'Information,http://iml.univ-mrs.fr/ati/semATI2009.html)
+    :where: Université Méditerranée, Marseille
+
+  :DRtalkMarseilleTheta:
+    :webname: 2011-02-Marseille_theta
+    :title: Abelian varieties, theta functions and cryptography
+    :date: 2011-02
+    :length: 1h30
+    :what:
+      :en: "PhD Students' seminar"
+      :fr: Groupe de travail des doctorants
+    :where: Université Méditerranée, Marseille
+
+  :DRtalkVersailles:
+    :webname: 2011-01-Versailles
+    :title: Computing isogenies and applications in cryptography
+    :date: 2011-01
+    :length: 1h
+    :what: Cryptology seminar
+    :where: Université Versailles Saint-Quentin, Versailles
+
+  :DRtalkGrenoble:
+    :webname: 2011-01-Grenoble
+    :title: Computing isogenies and applications in cryptography
+    :date: 2011-01
+    :length: 1h
+    :what: LINK(Minalogic cryptology seminar,http://www-verimag.imag.fr/Seminaires-Cryptologie.html)
+    :where: Grenoble
+
+  #Note: first part was on blackboard
+  :DRtalkAlgoL:
+    :webname: 2010-12-Bordeaux
+    :title: Abelian varieties, theta functions and cryptography
+    :date: 2010-12
+    :length: 40min+40min
+    :what: LINK(Algorithmics of L-functions,http://www.math.univ-toulouse.fr/~couveig/wbl) workshop
+    :where: Bordeaux
+    :info: "Part 1 on blackboard."
+
+  :DRtalkChicClass:
+    :webname: 2010-12-Chic-Paris
+    :title: On the CRT method to compute class polynomials in genus~2
+    :date: 2010-12
+    :length: 30min
+    :what: :chic
+    :where: Paris
+
+  :DRtalkLIX:
+    :webname: 2010-11-LIX-Paris
+    :title: Generalizing Vélu's formulas and some applications
+    :date: 2010-11
+    :length: 1h
+    :what: LINK(TANC Seminar,http://www.lix.polytechnique.fr/~morain/Crypto/)
+    :where: LIX, École Polytechnique, Paris
+
+  :DRtalkMSR2:
+    :webname: 2010-09-Microsoft
+    :title: Speeding up the CRT method to compute class polynomials in genus 2
+    :date: 2010-09
+    :length: 1h
+    :what: :msr
+    :where: Redmond, USA
+    #:note: Mémoire de fin de stage
+
+  :DRtalkMSR1:
+    :webname: 2010-07-Microsoft
+    :title: Abelian varieties, Theta functions and cryptography
+    :date: 2010-07
+    :length: 30min
+    :what: :msr
+    :where: Redmond, USA
+
+  :DRtalkChicArith:
+    :title: Arithmétique rapide avec les fonctions thêta
+    :date: 2010-06
+    :keyword: blackboard-talk
+    :length: 20min
+    :what: :chic
+    :where: Paris
+
+  :DRtalkBordeaux:
+    :webname: 2010-02-Bordeaux
+    :title: A Vélu's like formula for computing isogenies on abelian varieties
+    :date: 2010-02
+    :length: 1h
+    :what: LINK(Séminaire de théorie des nombres,http://www.math.u-bordeaux1.fr/maths/spip.php?article44&year=2009)
+    :where: Bordeaux
+
+  :DRtalkBordeauxPairing:
+    :title: Calcul de pairing avec les fonctions thêta
+    :date: 2010-02
+    :keyword: blackboard-talk
+    :length: 1h
+    :what: LINK(LFANT Cryptographic Seminar,http://www.math.u-bordeaux1.fr/~enge/lfant/index.php?category=seminar&page=2009)
+    :where: Bordeaux
+
+  :DRtalkMarseille:
+    :webname: 2009-11-Marseille
+    :title: A Vélu's like formula for computing isogenies on abelian varieties
+    :date: 2009-11
+    :length: 1h
+    :what: LINK(Séminaire Arithmétique et Théorie de l'Information,http://iml.univ-mrs.fr/ati/semATI2009.html)
+    :where: Marseille
+
+  :DRtalkChicPairing:
+    :webname: 2009-10-Chic-Paris_pairings
+    :title: An efficient computation of the commutator pairing
+    :date: 2009-10
+    :length: 20min
+    :what: :chic
+    :where: Paris
+
+  :DRtalkChicIso:
+    :webname: 2009-10-Chic-Paris_isogenies
+    :title: A Vélu's like formula for computing isogenies on abelian varieties
+    :date: 2009-10
+    :length: 40min
+    :what: :chic
+    :where: Paris
+
+  :DRtalkJAStE:
+    :webname: 2009-07-JourneesArithmetiques-SaintEtienne
+    :title: Computing isogenies of small degrees on abelian varieties
+    :date: 2009-07
+    :length: 20min
+    :what: LINK(les journées d'Arithmétiques 2009,http://ja2009.univ-st-etienne.fr)
+    :where: Saint-Étienne
+
+  :DRtalkRennes:
+    :webname: 2009-04-Rennes
+    :title: Computing isogenies of small degrees on abelian varieties
+    :date: 2009-04
+    :length: 1h
+    :what: LINK(Séminaire de cryptographie,http://math2007.univ-rennes1/crypto/2008/DamienRobert_fr.html)
+    :where: Rennes
+
+  :DRtalkJapon:
+    :webname: 2008-11-Tsukuba
+    :title: Abelian varieties and isogenies
+    :date: 2008-11
+    :length: 30min
+    :what: LINK(Tsukuba Cryptographic Seminar,http://www.tsukuba.ac.jp/english/)
+    :where:
+      :en: Tsukuba, Japan
+      :fr: Tsukuba, Japon
+
+##########################################################################
+
+:rump: #{{{1
+  :DRrumpECC2011:
+    :webname: 2011-09-ecc_rump
+    :title: Sleeping in the volcano
+    :date: 2011-09
+    :what: LINK(ECC 2011,http://ecc2011.loria.fr) conference
+    :where: Nancy
+
+  :DRrumpECC2010:
+    :webname: 2010-10-ecc_rump
+    :title: AVIsogenies, a library for computing isogenies between abelian varieties
+    :date: 2010-10
+    :what: LINK(ECC 2010,http://2010.eccworkshop.org/abstracts.html)
+    :where: Redmond, USA
+    :with: [':bisson', ':cosset']
+    :extra_links: "LINK(Video link,http://research.microsoft.com/apps/video/dl.aspx?id=140735) (starts at 16m30s)"
+
+##########################################################################
+
+:softwares: #{{{1
+  :DRAVIsogenies:
+    :title: AVIsogenies
+    :post_title: (Abelian Varieties and Isogenies)
+    :with: [':bisson', ':cosset']
+    :date: 2010
+    :url: http://avisogenies.gforge.inria.fr
+    :what:
+      :en: Magma package devoted to the computation of isogenies between abelian varieties
+      :fr: Packet magma dédié au calcul explicite d'isogénies entre variétés abéliennes
+    :info:
+      :en: Free software (LGPLv2+), registered to APP (reference IDDN.FR.001.440011.000.R.P.2010.000.10000). Latest version 0.6, released on 2012-11-28.
+      :fr: Licence libre (LGPLv2+), enregistré à l'APP (référence IDDN.FR.001.440011.000.R.P.2010.000.10000). Version actuelle 0.6, publiée le 2012-11-28.
+    :tex:
+      :info:
+        :en: Free software (LGPLv2+), registered to APP (reference IDDN.\-FR.\-001.\-440011.\-000.\-R.\-P.\-2010.\-000.\-10000). Latest version 0.6, released on 2012-11-28.
+        :fr:
+          Licence libre (LGPLv2+), enregistré à l'APP (référence IDDN.\-FR.\-001.\-440011.\-000.\-R.\-P.\-2010.\-000.\-10000). Version actuelle 0.6, publiée le 2012-11-28.
+    :bibtex:
+      :author: [':bisson', ':cosset', ':me']
+
+#########################################################################
+
+:patents: #{{{1
+  :DRpatent:
+    :title: Computing genus~$2$ curves using general isogenies
+    :bibtype: :misc
+    :author: [':lauter', ':me']
+    :date: 2010
+#    :bibtex:
+#      :note:
+#        :fr: "Brevet rédigé avec l'aide de Peter Gordon, avocat, et déposé à l'office des brevets américain le 18 Décembre 2010 (actuellement en cours de traitement). Référence Microsoft: 331357.01"
+
+:academic: #{{{1
+  #Began 30/01/2010, version rapporteurs 11/05/2010, version jury 30/06/2010, soutenance 21/07/2010
+  :DRphd:
+    :webname: phd
+    :texname: these/thesis
+    :title:
+      :en: Theta functions and cryptographic applications
+      :fr: Fonctions thêta et applications à la cryptographie
+    :bibtype: :phdthesis
+    :date: 2010-07-21
+    :publi: PhD thesis in Computer Sciences
+    :where: Université Henri-Poincarré, Nancy
+    :post_title:
+      :en: "(in French)"
+      :fr: "(en Français)"
+    :links:
+      :Slides:
+        :webname: 2010-07-Phd-Nancy
+        :length: 1h
+        :where: Nancy
+      :TEL: tel-00528942
+    :bibtex:
+      :school: Université Henri-Poincarré, Nancy~1, France
+#}}}1
+
+##########################################################################
+
+:students: #{{{1
+  :milio:
+    :author: :milio
+    :title:
+      :en: Isogenies between abelian surfaces
+      :fr: Isogénies entre surfaces abéliennes
+    :date: 2012-11 -> :now
+    :with: :enge
+    :what: :phd
+    :where: :InriaBordeaux
+  :chillotti:
+    :author: Illaria Chillotti
+    :title: Pairings over elliptic curves using isogenies
+    :date: 2014
+    :what: :master
+    :where: :IMB
+  :piazza:
+    :author: Giulio Di Piazza
+    :title: Arithmetic on Jacobians of algebraic curves
+    :url: http://www.algant.eu/documents/theses/dipiazza.pdf
+    :date: 2013
+    :what: :master
+    :post_what: :ALGANT
+    :where: :IMB
+  :lovato:
+    :author: Ilaria Lovato
+    :title: Computing Modular Polynomials with Theta Functions
+    :url: http://www.algant.eu/documents/theses/lovato.pdf
+    :date: 2012
+    :with: :enge
+    :what: :master
+    :post_what: :ALGANT
+    :where: :IMB
+
+:responsibilities: #{{{1
+  :lfant_seminar:
+    :date: 2010-10 -> 2011-08, 2012-03 -> :now
+    :what:
+      :fr: Organisation des LINK(séminaires de l'équipe LFANT,http://www.math.u-bordeaux1.fr/~enge/lfant/index.php?category=seminar)
+      :en: Organisation of the LINK(LFANT seminars,http://www.math.u-bordeaux1.fr/~enge/lfant/index.php?category=seminar)
+    :texcvitem:
+      :date: 2010-10 -> :now
+  :macisa:
+    :date: 2013-06 -> :now
+    :what:
+      :fr: Responsable scientifique du thème « Elliptic and hyperelliptic curves cryptography » de l'équipe-projet MACISA, au sein du Laboratoire international de recherche en informatique et mathématiques appliquées (LIRIMA)
+      :en: Scientific adviser for the theme "Elliptic and hyperelliptic curves cryptography" of the team MACISA, inside the laboratory LIRIMA
+  :antics:
+    :title: Antics
+    :acro: Algorithmic Number Theory in Computer Science
+    :url: http://www.openaire.eu/en/component/openaire/project_info/default/619?id=278537
+    :granttype: :erc
+    :date: 2012 -> :now #2016
+    :role: :member
+  :simpatic:
+    :title: Simpatic
+    :acro: SIM and PAiring Theory for Information and Communications security
+    :url: http://simpatic.orange-labs.fr/
+    :granttype: :anr-industrial
+    :date: 2013 -> :now #2016
+    :role: :member
+  :peace:
+    :title: Peace
+    :acro: Parameter spaces for Efficient Arithmetic and Curve security Evaluation
+    :url: http://chic2.gforge.inria.fr/
+    :granttype: :anr
+    :date: 2012 -> :now #2015
+    :role: :member
+  :CPU:
+    :title:
+      :fr: Membre du LabEx CPU
+      :en: Member of the LabEx CPU
+    :acro: Numerical certification and reliability
+    :url: http://cpu.labex-univ-bordeaux.fr/en/
+    :date: 2012 -> :now #TODO check date
+  :chic:
+    :title: Chic
+    :acro:
+      :fr: Courbes Hyperelliptiques Isogénies et Comptage
+      :en: Hyperelliptic curves, isogenies and point counting
+    :url: http://chic.gforge.inria.fr/
+    :granttype: :anr
+    :date: 2009 -> 2012
+    :role: :member
+
+:teaching: #{{{1
+  :monitorat:
+    :title:
+      :fr: Monitorat en Informatique
+      :en: Teaching Fellow (Moniteur) in Computer Science
+    :date: 2007 -> 2010
+    :where: Université Henri-Poincaré (Nancy)
+    :extrainfos:
+      :en:
+        - Tutorials of the cryptography course (M1, 30h).
+        - "Course on Web technologies: HTML, CSS, PHP and MySQL (L1, 60h)."
+        - Tutorials of the OCaml programming course (L1, 120h).
+      :fr:
+        - TDs d'introduction à la cryptography (M1, 30h).
+        - "Cours de découverte de l'informatique: HTML, CSS, PHP and MySQL (L1, 60h)."
+        - "TDs et TPs d'introduction à la programmation: OCaml (L1, 120h)."
+#  :webcss2010:
+#    :title: Découverte de l'informatique
+#    :date: 2009 -> 2010
+#    :where: Université Henri-Poincaré
+#    :level: L1
+#    :length: 30h de Cours-TD et 30h de TP
+#    :what: HTML, CSS, PHP, MySQL, The Gimp
+#  :cryptoMonitorat:
+#    :title: Introduction à la cryptographie
+#    :date: 2007 -> 2009
+#    :where: Université Henri-Poincaré
+#    :level: M1
+#    :length: 30h de TD
+#  :ocaml:
+#    :title: Introduction à la programmation
+#    :date: 2007 -> 2009
+#    :where: Université Henri-Poincaré
+#    :level: L1
+#    :length: 40h de TD, 80h de TP
+#    :what: Ocaml
+  :gt_mehdi:
+    :title: Corps quadratiques et groupes de classes
+    :date: 2004-03 -> 2004-05
+    :where: École Normale Supérieure, Paris
+    :url:
+      :en: EXPAND(:webperso)gt/index.en.html
+      :fr: EXPAND(:webperso)gt/index.html
+    :what: 
+      :en: Workgroup organized with Mehdi Tibouchi
+      :fr: Groupe de travail organisé en commun avec Mehdi Tibouchi
+
+:vulgarisation: #{{{1
+  :aquitec:
+    :date: 2011-06
+    :what:
+      :en: Students meeting LINK(Aquitec 2011,http://aquitec.com/)
+      :fr: "Participation au stand commun des EPST CNRS, INRA, INRIA, INSERM au salon des métiers LINK(Aquitec 2011,http://aquitec.com/): rencontres de public jeunes et leurs parents pour parler des métiers des sciences"
+    :where: Bordeaux
+
+:prizes: #{{{1
+  :phdprizeRegion:
+    :date: 2012-02
+    :what:
+      :en: "Received the second prize in Science for the LINK(Lorraine Region PhD awards,http://www.lorraine.eu/cms/render/live/fr/sites/www/accueil/actualites/zone-actus/toutes-les-actualites/remise-de-prix-regionaux-de-la-t.html)"
+      :fr: "Second prix en Sciences pour le LINK(prix de thèse de la région Lorraine,http://www.lorraine.eu/cms/render/live/fr/sites/www/accueil/actualites/zone-actus/toutes-les-actualites/remise-de-prix-regionaux-de-la-t.html)"
+    :where: Metz
+    :info:
+      :en: "(LINK(Inria announcement,http://www.inria.fr/centre/nancy/actualites/nicolas-navet-et-damien-robert-laureats-lorrains))"
+      :fr: "(LINK(Annonce Inria,http://www.inria.fr/centre/nancy/actualites/nicolas-navet-et-damien-robert-laureats-lorrains))"
+  :phdprizeIAEM:
+    :date: 2011-10
+    :what:
+      :en: "Received the LINK(Lorraine University PhD awards,http://actu.blog.univ-lorraine.fr/2011/09/30/portraits-des-prix-de-these-2011-suite-et-fin/) in the domain of LINK(IAEM,http://www.iaem.uhp-nancy.fr) (Computer science, Mathematics, Electronic)"
+      :fr: "LINK(Prix de thèse de l'université de Lorraine,http://actu.blog.univ-lorraine.fr/2011/09/30/portraits-des-prix-de-these-2011-suite-et-fin/) dans le domaine IAEM (Informatique, Automatique, Électronique, Mathématiques)"
+    :where: Nancy
+    :info:
+      :en: "(LINK(Photos of the ceremony,http://vers.univ-lorraine.fr/index.php?id=221#c538))"
+      :fr: "(LINK(Photos de la cérémonie,http://vers.univ-lorraine.fr/index.php?id=221#c538))"
+
+:stays: #{{{1
+  :msr_2013:
+    :what:
+      :en: One week visit to Microsoft Research
+      :fr: Visite d'une semaine de Microsoft Research
+    :date: 2013-08
+    :where: Redmond, USA
+  :epfl_2013:
+    :what:
+      :en: One week visit to EPFL
+      :fr: Visite d'une semaine de l'EPFL
+    :date: 2013-05
+    :where: Lausanne
+  :msr_2012:
+    :what:
+      :en: One week visit to Microsoft Research
+      :fr: Visite d'une semaine de Microsoft Research
+    :date: 2012-08
+    :where: Redmond, USA
+  :msr_2010:
+    :what:
+      :en: Three month Microsoft Research Internship in the cryptographic team to work on genus 2 class polynomials with Kristin Lauter
+      :fr: Séjour de trois mois à Microsoft Research dans l'équipe de cryptographie pour travailler sur les polynômes de classe en genre 2
+    :date: 2010-07 -> 2010-09
+    :where: Redmond, USA
+  :tsukuba:
+    :what:
+      :en: Three weeks visit at Tsukuba University in the team of professor Okamoto to work on pairings
+      :fr: Séjour de trois semaines à l'Université de Tsukuba dans l'équipe du professeur Okamoto pour travailler sur les couplages
+    :date: 2008-11
+    :where: Tokyo
+
+:conferences: #{{{1
+  :ICM_2014:
+    :what: EXP(:ICM) (ICM 2014)
+    :date: 2014-08
+    :where: Seoul, Korea
+  :ANTS_2014:
+    :what: EXP(:ants) (ANTS-XI)
+    :date: 2014-08
+    :where: GyeongJu, Korea
+  :Peace_2014:
+    :what: Effective Moduli Space
+    :date: 2014-06
+    :where: Rennes
+  :DLP_2014:
+    :what: Discrete Logarithm Problem (DLP)
+    :date: 2014-05
+    :where: Ascona, Suisse
+  :C2_2014:
+    :what: :C2
+    :date: 2014-03
+    :where: Grenoble
+  :geocrypt_2013:
+    :what: :geocrypt
+    :date: 2013-10
+    :where: Tahiti
+  :lirima_2013:
+    :what: Journées du Lirima
+    :date: 2013-09
+    :where: Rabbat, Maroc
+  :sac_2013:
+    :what: :sac
+    :date: 2013-08
+    :where: Vancouver, Canada
+  :agct_2013:
+    :what: :agct
+    :date: 2013-06
+    :where: Marseille
+  :parigp_2013:
+    :what: :pari
+    :date: 2013-01
+    :where: Bordeaux
+  :C2_2012:
+    :what: :C2
+    :date: 2012-10
+    :where: Dinard
+  :ANTS_2012:
+    :what: EXP(:ants) (ANTS-X)
+    :date: 2012-07
+    :where: San Diego, USA
+  :ECC_2011:
+    :what: EXP(:ecc) (ECC 2011) (+Summer School)
+    :date: 2011-09
+    :where: Nancy
+  :Geocrypt_2011:
+    :what: :geocrypt
+    :date: 2011-06
+    :where: Bastia
+  :C2_2011:
+    :what: :C2
+    :date: 2011-04
+    :where: Oléron
+  :ALGOL:
+    :what: Worskshop Algorithmics of L-functions
+    :date: 2010-12
+    :where: Bordeaux
+  :ECC_2010:
+    :what: EXP(:ecc) (ECC~2010, 25 year anniversary)
+    :date: 2010-10
+    :where: Redmond, USA
+  :ANTS_2010:
+    :what: EXP(:ants) (ANTS-IX)
+    :date: 2010-07
+    :where: Nancy
+  :Moscou:
+    :what: Algorithmique et Arithmétique, avec applications à la cryptographie
+    :date: 2010-05
+    :where: Moscow
+  :ECC_2009:
+    :what: EXP(:ecc) (ECC 2009)
+    :date: 2009-10
+    :where: Calgary
+  :JA_2009:
+    :what: Les journées d'arithmétiques 2009
+    :date: 2009-07
+    :where: Saint-Etienne
+  :AGCT_2009:
+    :what: :agct
+    :date: 2009-03
+    :where: Marseille
+  :CADO:
+    :what: CADO workshop on integer factorisation
+    :date: 2008-10
+    :where: Nancy
+  :ANTS_2008:
+    :what: EXP(:ants) (ANTS-VIII)
+    :date: 2008-07
+    :where: Banff, Canada
+  :LIX:
+    :what: Crypto week
+    :date: 2008-06
+    :where: LIX, Saclay.
+  :EJCIM_2008:
+    :what: :EJCIM
+    :date: 2008-04
+    :where: Marseille
+  :LLL:
+    :what: "LLL+25"
+    :date: 2007-06
+    :where: Caen
+  :EJCIM_2007:
+    :what: :EJCIM
+    :date: 2007-03
+    :where: Nancy
+  :JNCF_2007:
+    :what: :JNCF
+    :date: 2007-02
+    :where: Luminy
+  :Groupes:
+    :what: "Théorie géométrique et cohomologie des groupes: rigidité et déformations (Summer school)"
+    :where: Luminy
+    :date: 2006-04
+
+:experiences: #{{{1
+  :tuteur:
+    :title:
+      :en: Computer Tutor
+      :fr: Tuteur Informatique
+    :date: 2003->2006
+    :url: http://www.tuteurs.ens.fr
+    :what:
+      :en: Help students to use the school computers, organizations of workgroup on LaTeX, Unix...
+      :fr: Familiariser les élèves avec le système informatique (Freebsd, Solaris, Linux). Organisation et encadrement de stages de travaux pratiques (LaTeX, Unix,...)
+    :where: École Normale Supérieure, Paris
+    :tex:
+      :what:
+        :en: Help students to use the school computers, organizations of workgroup on \LaTeX, Unix\ldots
+        :fr: Familiariser les élèves avec le système informatique (Freebsd, Solaris, Linux). Organisation et encadrement de stages de travaux pratiques (\LaTeX, unix,\ldots)
+  :gourou:
+    :title:
+      :en: Student administrator
+      :fr: Administareur Élève
+    :date: 2003->2006
+    :what:
+      :en: Help the system administrators to maintain the school computers (on Solaris and FreeBSD), configuration of the user sessions, software installation
+      :fr: Aider les administrateurs système à gérer le parc informatique, configuration des sessions utilisateurs, installation logicielle
+    :where: École Normale Supérieure, Paris
+
+:juries: #{{{1
+  :wesolowski:
+    :author: Benjamin Wesolowski
+    :title: Walking on Isogeny Graphs of Genus 2 Hyperelliptic Curves
+    :date: 2014-07
+    :what: :master
+    :where: Lausanne, Suisse
+#}}}1
+
+##########################################################################
+
+---
+:authors: #{{{1
+  :bisson:
+    :name: Gaëtan Bisson
+    :url: "http://gati.org/bisson/"
+    :bib:
+      :name: Bisson, Gaëtan
+  :cosset:
+    :name: Romain Cosset
+    :url: "http://www.loria.fr/~cossetro/" #TODO
+    :bib:
+      :name: Cosset, Romain
+  :enge:
+    :name: Andreas Enge
+    :url: "http://www.math.u-bordeaux1.fr/~aenge/"
+    :bib:
+      :name: Enge, Andreas
+  :faugere:
+    :name: Jean-Charles Faugère
+    :url: "http://www-calfor.lip6.fr/~jcf/"
+    :bib:
+      :name: Faugère, Jean-Charles
+  :lauter:
+    :name: Kristin Lauter
+    :url: "http://research.microsoft.com/~klauter/"
+    :bib:
+      :name: Lauter, Kristin E.
+  :lubicz:
+    :name: David Lubicz
+    :url: "http://perso.univ-rennes1.fr/david.lubicz/"
+    :bib:
+      :name: Lubicz, David
+  :milio:
+    :name: Enea Milio
+    :url: "http://www.math.u-bordeaux1.fr/~emilio/"
+    :bib:
+      :name: Milio, Enea
+:links: #{{{1
+  :compositio:
+    :name: Compositio Mathematica
+    :url: http://www.compositio.nl/
+  :msr:
+    :name: Microsoft Research
+    :url: http://research.microsoft.com/
+  :ALGANT:
+    :name: ALGANT
+    :url: http://www.algant.eu/
+expand: #{{{1
+  :phd:
+    :en: Phd Thesis
+    :fr: Thèse
+  :master: Master
+  :IMB: Institut de Mathématiques de Bordeaux
+  :InriaBordeaux: Inria Bordeaux Sud-Ouest
+  :agct:
+    :fr: Arithmétique, géométrie, cryptographie et théorie des codes (AGCT)
+    :en: Arithmetic, Geometry, Cryptography and Coding Theory (AGCT)
+  :pari:
+    :fr: Atelier Pari/GT
+    :en: Pari/GT Workshop
+  :C2: Journées Codage et Cryptographie (C2)
+  :ants: International Algorithmic Number Theory Symposium
+  :ecc: Elliptic Curves Cryptography
+  :EJCIM: École Jeunes chercheurs en informatique mathématique (EJCIM, GDR IM)
+  :JNCF: Journées nationales du calcul formel
+  :geocrypt: Geometry and Cryptography (Geocrypt)
+  :sac: Selected Area in Cryptography (SAC)
+  :ICM: International Congress of Mathematicians
+
+# vim: fdm=marker

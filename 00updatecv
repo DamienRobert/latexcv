@@ -1,0 +1,1 @@
+gvim -p perso.yaml parse.rb cv.rb biblio.rb ~/website/pro/src/{publications/index.*.page,publications/conferences.*.page,teaching/index.*.page,responsibilities.*.page,software.*.page}

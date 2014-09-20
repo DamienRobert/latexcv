@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+
+( cd ~/latex/cv
+echo "# biblio"
+./biblio.rb
+echo "# cv"
+./cv.rb
+)
