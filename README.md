@@ -1,3 +1,5 @@
+# latexcv
+
 This repository contains a script to generate different cvs from a single
 yaml file (here perso.yaml).
 
@@ -16,7 +18,11 @@ The parsing is done by parse.rb, it is used by
       Biblio.process_group(groups,$biblio, **kwds)
       %>
 
-Obligatory warning:
+## Copyright
+
+Copyright © 2014 Damien Robert
+
+MIT License. Obligatory warning:
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
