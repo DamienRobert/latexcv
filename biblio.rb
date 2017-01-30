@@ -27,6 +27,7 @@ def run
 	kwds={}
 	process(:perso,"biblio_damien_robert_all_en", out: :bib, lang: :en, **kwds)
 	process(:perso,"biblio_damien_robert_all_fr", out: :bib, lang: :fr, **kwds)
+	#filter out biblio entries marked with 'keyword: notpublic'
 	process(:public,"biblio_damien_robert_en", out: :bib, lang: :en, **kwds)
 	process(:public,"biblio_damien_robert_fr", out: :bib, lang: :fr, **kwds)
 end

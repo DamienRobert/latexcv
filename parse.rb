@@ -4,7 +4,7 @@
 require 'yaml'
 require 'pathname'
 require 'bibtex'
-require 'dr/core_ext'
+require 'dr/ruby_ext/core_ext'
 
 #parse sentences of the form "ploum LINK(plam,plim)" and replace LINK(plam,plim) by the result of a function
 module Parse
@@ -57,8 +57,9 @@ class DateRange
 		#in: 2014-01-02 -> 2014-01-03, 2014-01-05, 2014-02 -> :now
 		#out: [[2014-01-02,2014-01-03],[2014-01-05],[2014-02,:now]]
 		def parse(date)
+			return date if date.kind_of?(self)
 			r=[]
-			dates = date.chomp.split(/,\s*/)
+			dates = date.to_s.chomp.split(/,\s*/)
 			dates.each do |d|
 				r << d.split(/\s*->\s*/).map {|i| i == ":now" ? :now : i }
 			end
@@ -219,6 +220,7 @@ class DateRange
 
 end
 
+#TODO: refactorize this mess of Biblio.self to its own class
 class Biblio
 	extend Forwardable
 	attr_accessor :content
@@ -229,13 +231,7 @@ class Biblio
 	WEBPRO=WEBSITE+"pro/"
 	WEBPERSO=WEBSITE+"perso/"
 	WEBPUBLIS=WEBPRO+"publications/"
-
-	@meta={all: {
-		me: {name: "Damien Robert", url: WEBPRO,
-			bib: {name: "Robert, Damien"} },
-		website: WEBSITE, webpro: WEBPRO,
-		webperso: WEBPERSO, webpublis: WEBPUBLIS,
-	}}
+	WEBTEACHING=WEBPRO+"teaching/"
 
 	Categories=Hash.new do |h,k|
 			h[k]={name: k, type: :activity}
@@ -255,6 +251,8 @@ class Biblio
 			phd: {name: {fr: 'Thèse', en: 'PhD Thesis'}, type: :publi},
 			teaching: {name: {fr: 'Enseignement', en: 'Teaching'}, type: :activity},
 			responsibilities: {name: {fr: 'Responsabilités', en: 'Responsibilities'}, type: :activity},
+			:'responsibilities-talks' => {name: {fr: "Transparents d'activités", en: 'Activities Slides'}, type: :activity},
+			comitees: {name: {fr: 'Comités', en: 'Comitees'}, type: :activity},
 			students: {name: {fr: 'Étudiants', en: 'Students'}, type: :activity},
 			vulgarisation: {name: {fr: 'Vulgarisation', en: 'Vulgarization'}, type: :activity},
 			prizes: {name: {fr: 'Prix', en: 'Prizes'}, type: :activity},
@@ -264,11 +262,13 @@ class Biblio
 			juries: {name: {fr: 'Jurys', en: 'Juries'}, type: :activity},
 			experiences: {name: {fr: 'Expériences', en: 'Experiences'}, type: :activity},
 		})
+		#merge teaching and teaching-talks by date
 		Categories[:'teaching-all']=Categories[:teaching]
 		Categories[:'vulgarisation-all']=Categories[:vulgarisation]
 
 	class << self
 		attr_accessor :meta
+		attr_accessor :raw
 		def authors
 			@meta[:authors]
 		end
@@ -280,12 +280,8 @@ class Biblio
 		end
 
 		def add(articles,meta=nil)
-			if meta
-				@meta.deep_merge!(meta)
-				meta.each do |k,v|
-					@meta[:all].merge!(v)
-				end
-			end
+			add_meta(meta) if meta
+			(@raw||={}).deep_merge!(articles)
 			r={}
 			articles.each do |k,g|
 				type=Categories[k][:type]
@@ -297,6 +293,17 @@ class Biblio
 				end
 			end
 			return r
+		end
+
+		def add_meta(meta)
+			@meta||={}
+			@meta.deep_merge!(expand_meta(meta))
+			@meta[:all]||={}
+			meta.each do |k,v|
+				common=@meta[:all].keys & v.keys
+				warn "@meta[:all]: Keys already there: #{common}" if common.length>0
+				@meta[:all].merge!(v)
+			end
 		end
 
 		def add_meta_info(a)
@@ -313,9 +320,19 @@ class Biblio
 				end
 				a[:name]||=name
 				ka=a[:key]
-				warn "@meta[:all]: Key already there: #{ka}" if @meta[:all].keys.include?(ka)
-				@meta[:all][ka]=a
+				add_meta({grant: {ka => a}})
 			end
+		end
+
+		def expand_meta(meta)
+			meta.fetch(:authors,{}).each do |k,a|
+				name=a[:name]
+				names=name.split
+				bibname="#{names[-1]}, #{names[0...-1].join(" ")}"
+				a[:bib]||={}
+				a[:bib][:name]||=bibname
+			end
+			meta
 		end
 
 		def load(*files)
@@ -329,6 +346,7 @@ class Biblio
 					r.merge!(nr)
 				end
 			end
+			r.values.flatten.map(&:expand_content)
 			return r
 		end
 
@@ -455,7 +473,7 @@ class Biblio
 
 		#biblio is of the form {:DRphd=>#<Biblio:0x97c7eec @content=..
 		def categorize(biblio)
-			phd=[biblio[:DRphd]]
+			phd=[biblio[:DRphd]] if biblio.key?(:DRphd)
 
 			biblio=biblio.values
 			notpublic=biblio.select {|b| b[:keyword] =~ /notpublic/}
@@ -477,29 +495,30 @@ class Biblio
 			return bibgroup
 		end
 
-		def std_bibgroups
-			return %i(preprints publis reports invited-talks
-				teaching-talks talks vulgarisation-talks rump phd
+		def std_bibgroups #for publication*.tex
+			return %i(preprints publis reports phd invited-talks
+				teaching-talks talks vulgarisation-talks rump
 				softwares patents)
 		end
-		def bib_bibgroups
+		def bib_bibgroups #for biblio*_all*.bib
 			return std_bibgroups + [:notpublic]
 		end
-		def pubbib_bibgroups
+		def pubbib_bibgroups #for biblio*.bib
 			return std_bibgroups
 		end
-		def web_bibgroups
+		def web_bibgroups #for publications/index*.page
 			return %i(preprints publis reports invited-talks
 				talks rump phd)
 		end
-		def webteach_bibgroups
+		def webteach_bibgroups #for teaching/index*.page
 			return %i(teaching-all students vulgarisation-all)
 		end
-		def webrespo_bibgroups
-			return %i(responsibilities experiences)
+		def webrespo_bibgroups #for responsibilitie*.paga
+			return %i(responsibilities comitees responsibilities-talks experiences)
 		end
-		def cv_bibgroups
-			return %i(publis preprints prizes softwares teaching-all students responsibilities reports phd invited-talks talks vulgarisation-all patents confstays)
+		def cv_bibgroups #for cv*.tex
+			return %i(publis preprints reports phd prizes softwares teaching-all students responsibilities comitees invited-talks talks vulgarisation-all responsibilities-talks patents confstays)
+			#experiences is included before in the first part
 		end
 
 		def localize(msg,lang: :en,**kwds)
@@ -528,20 +547,19 @@ class Biblio
 			end
 		end
 
-		def try_expand_symbol(sym,**kwds)
+		def get_symbol(sym)
 			case sym
 			when Symbol
-				return expand_symbol(sym,**kwds),true
+				return sym, true
 			when String
-				if sym[0] == ':'
-					key=sym[1...sym.length].to_sym
-					return expand_symbol(key,**kwds),true
-				else
-					return sym,false
-				end
-			else
-				return sym,false
+				return sym[1...sym.length].to_sym, true if sym[0] == ':'
 			end
+			return sym, false
+		end
+		def try_expand_symbol(sym,**kwds)
+			key,r=get_symbol(sym)
+			return expand_symbol(key,**kwds), r if r
+			return sym, r
 		end
 
 		#if args is of size 1 and an array we join the elements of this array
@@ -575,7 +593,7 @@ class Biblio
 			when Hash
 				outtype=kwds[:outtype]
 				out=kwds[:out]
-				clean_nil=kwds[:clean_nil]||true
+				clean_nil=kwds.fetch(:clean_nil,true)
 				if msg.key?(outtype)
 					msg=msg.merge(msg[outtype])
 					msg.delete(outtype)
@@ -645,11 +663,11 @@ class Biblio
 							else
 								make_link(name,**kwds)
 							end
-						when 2
-							name=args[0]
-							url=args[1]
 						else
-							warn "LINK called with too many args: #{args}"
+							#hack: when there are several arguments assume the first ones
+							#are normal commas
+							name,url=args[0...-1].join(','),args[-1]
+							#warn "LINK called with too many args: #{args}, merging them" if args.length >2
 						end
 						make_link(name,url,**kwds)
 					end
@@ -702,7 +720,7 @@ class Biblio
 				end
 			else
 				outtype=kwds[:outtype]
-				name=args.shift
+				name=localize(args.shift,**kwds)
 				url=args.shift || name
 				case outtype
 				when :tex
@@ -736,7 +754,7 @@ class Biblio
 		#WARNING: assume that cur_folder is only of level 1 ie ploum/ and not
 		#ploum/plam:
 		def relative_link(relurl,cur_folder=nil)
-			return relurl unless cur_folder
+			return relurl if ! cur_folder or cur_folder.empty?
 			cur_folder+='/' unless cur_folder[cur_folder.length-1]='/'
 			if relurl=~/^#{cur_folder}/
 				return relurl.sub(/^#{cur_folder}/,'')
@@ -794,10 +812,11 @@ class Biblio
 			return nil unless links
 			return Biblio.join(links.each.map do |k,l|
 				if k==:Slides and Hash===l
-					date=l[:date].nil? ? nil : DateRange.parse(l[:date].to_s).to_s(output_date: :string, **kwds)
-					l=get_file_and_url(l,"talks")
+					l=get_file_and_url(l,"talks",**kwds)
+					l=expand_conf(l)
+					date=l[:date].nil? ? nil : DateRange.parse(l[:date]).to_s(output_date: :string, **kwds)
 					name=complete_link(k,l[:url],**kwds)
-					info=Biblio.join([l[:length],l[:what],date,l[:where],l[:info]],join:", ",**kwds)
+					info=Biblio.join([l[:length],Biblio.expand(l[:what],**kwds),date,l[:where],l[:info]],join:", ",**kwds)
 					name+(info.empty? ? "" : " ("+info+")")
 				else
 					complete_link(k,l.to_s,**kwds)
@@ -861,9 +880,11 @@ class Biblio
 		end
 
 		def get_file_and_url(hash,group=nil,**kwds)
+			group||=hash[:group]
 			if group
 				firstdir="publications/"
 				firstdir="teaching/" if group.to_s =~ /^(teaching|vulgarisation)/
+				firstdir="responsibilities/" if group.to_s =~ /^(responsibilities|experiences)/
 				dirname=
 					if group.to_s =~ /talks$/
 						"slides/"
@@ -893,22 +914,49 @@ class Biblio
 				return type.to_s
 			end
 		end
+
+		#expand :conf entry
+		def expand_conf(entry)
+			sym,r=Biblio.get_symbol(entry[:conf])
+			if r #automatically retrieve information 
+				conf=Biblio.raw[:conferences][sym].dup
+				return conf.merge(entry) if conf
+			end
+			entry
+		end
 	end
+
+	#Used to expand symbols
+	#perso.yaml define three metainformations key: :authors, :links, :expand;
+	#they are all merged in :all
+	Biblio.add_meta({ authors: {
+			me: {name: "Damien Robert", url: WEBPRO, bib: {name: "Robert, Damien"}}
+		},
+		links: {
+			website: WEBSITE, webpro: WEBPRO, webperso: WEBPERSO,
+			webpublis: WEBPUBLIS, webteaching: WEBTEACHING,
+		},
+		expand: {
+			inpreparation: {en: "In preparation.", fr: "En préparation."},
+		},
+	})
+
 
 	def initialize(hash, key: nil)
 		@content=hash
 		@content[:key]||=key if key
 		#this is not necessary since the hash is passed by reference but I find
 		#it clearer
-		@content=Biblio.get_file_and_url(@content,@content[:group])
+		@content=Biblio.get_file_and_url(@content)
 		handle_date
+		complete_content
 	end
 
 	def handle_date
 		@content[:year]=@content[:year].to_i if @content.key?(:year)
 		@content[:month]=@content[:month].to_i if @content.key?(:month)
 		if @content.key?(:date)
-			@content[:date]=DateRange.parse(@content[:date].to_s)
+			@content[:date]=DateRange.parse(@content[:date])
 			datetime=@content[:date].d.first.first
 			year,month=DateRange.split_date(datetime)
 			@content[:year]||=year.to_i
@@ -924,6 +972,16 @@ class Biblio
 				@content[:date]=DateRange.parse(r)
 			end
 		end
+	end
+
+	#used at init
+	def complete_content
+		@content[:info]=Biblio.join(@content[:info], "EXP(:inpreparation)") if @content[:keyword] =~ /inpreparation/
+	end
+
+	#called by Biblio.load, after we have loaded the full biblio files
+	def expand_content
+		@content=Biblio.expand_conf(@content)
 	end
 
 	def to_s(**kwds)
@@ -973,7 +1031,8 @@ class Biblio
 		bib[:author]||=Biblio.meta_all[:me][:bib][:name]
 		bib[:keywords]||="perso,"+exp[:group].to_s if exp.key?(:group)
 
-		bib[:note]=Biblio.join(bib[:howpublished],Biblio.output_prepubli(exp[:prepubli],**kwds),Biblio.join(%i(what where).map {|i| exp[i]},join:", ",**kwds),post_item:".",**kwds)
+		exp[:where]=nil if bib[:school] #horrible hack for phdthesis, the :where info is already present in :school
+		bib[:note]=Biblio.join(bib[:note],bib[:howpublished],Biblio.output_prepubli(exp[:prepubli],**kwds),Biblio.join(%i(what where).map {|i| exp[i]},join:", ",**kwds),post_item:".",**kwds)
 
 		#links
 		links=exp[:links]
@@ -1020,7 +1079,7 @@ class Biblio
 	def info(**kwds)
 		info=@content.dup
 		info.merge!(info[:text]) if info.key?(:text)
-		info=Biblio.expand(info,recursive: true,**kwds)
+		info=Biblio.expand(info,recursive: true,clean_nil: false,**kwds)
 
 		if info.key?(:url)
 			title=Biblio.make_link(info[:title],info[:url],**kwds)
@@ -1051,7 +1110,7 @@ class Biblio
 		#we may need to parse the date again in case it was merged
 		date=case info[:date]
 			when nil; nil
-			when String; DateRange.parse(info[:date].to_s).to_s(output_date: :string, **kwds)
+			when String; DateRange.parse(info[:date]).to_s(output_date: :string, **kwds)
 			when DateRange; info[:date].to_s(output_date: :string, **kwds)
 			end
 		where=info[:where]
@@ -1062,6 +1121,17 @@ class Biblio
 
 		links=Biblio.join(Biblio.handle_links(info[:links],**kwds),info[:extra_links],join:', ',pre:'(',post:'.)')
 		inf=info[:info]
+		if info[:group]==:comitees
+			roles=Biblio.join([*info[:role]].map do |i|
+				case i
+				when :scientific
+					role=Biblio.localize({en: "Scientific Comitee", fr: "Comité scientifique"},**kwds)
+				when :organisation
+					role=Biblio.localize({en: "Organisation Comitee", fr: "Comité d'organisation"},**kwds)
+				end
+			end,join: ', ',post:'.',**kwds)
+			inf=Biblio.join(roles,inf,**kwds)
+		end
 
     extrainfo=Biblio.wrap(Biblio.sublist(info[:extrainfos],**kwds),pre:"\n")
 		r=Biblio.join(info[:pre],titleauthors,whatdate,links,inf,extrainfo,info[:post],**kwds)
@@ -1076,24 +1146,24 @@ end
 
 if __FILE__ == $0
 	require "optparse"
-	$opts={out: :string, lang: :en}
+	opts={out: :string, lang: :en}
 	optparse = OptionParser.new do |opt|
 		opt.banner = "Parse bibliography yaml files and output bibtex or markdown/kramdown"
-		opt.on("--out=OUT", [:bib,:web,:string,:links,:tex,:texbib,:texcv,:texcvitem,:texcvlist], "Output mode", "Default: string") do |v| $opts[:out]=v end
-		opt.on("--lang=LANG", [:en,:fr], "Lang", "Default: en") do |v| $opts[:lang]=v end
+		opt.on("--out=OUT", [:bib,:web,:string,:links,:tex,:texbib,:texcv,:texcvitem,:texcvlist], "Output mode", "Default: string") do |v| opts[:out]=v end
+		opt.on("--lang=LANG", [:en,:fr], "Lang", "Default: en") do |v| opts[:lang]=v end
 	end
 	optparse.parse!
 
 	biblio=Biblio.categorize(Biblio.load(*ARGV))
 	groups=biblio.keys #Biblio.std_bibgroups
-	if $opts[:out] == :links
+	if opts[:out] == :links
 		puts Biblio.join(Biblio.meta_all.each.map do |k,v|
-			"["+v[:name]+"]: "+v[:url] if Hash === v and v.key?(:name)
+			"["+v[:name].to_s+"]: "+v[:url].to_s if Hash === v and v.key?(:name)
 		end, join:"\n")
 		exit
 	end
-	kwds=$opts
-	puts Biblio.process_group(groups,biblio, titletype: :symbol,**kwds)+"\n"
+	kwds=opts
+	puts Biblio.process_group(groups,biblio, titletype: :symbol,**kwds).to_s+"\n"
 	#puts Biblio.process_group(groups,biblio, cur_folder: 'publications/', **kwds)+"\n"
 	#puts Biblio.process_list(biblio[:softwares], **kwds)+"\n"
 end

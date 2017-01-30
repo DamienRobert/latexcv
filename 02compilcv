@@ -1,12 +1,14 @@
 #!/usr/bin/zsh
 
 ( cd ~/latex/cv
-mylatexmk -lua cv_damien_robert_fr.tex
-mylatexmk -lua cv_damien_robert_en.tex
-mylatexmk -lua publications_damien_robert_fr.tex
-mylatexmk -lua publications_damien_robert_en.tex
-mylatexmk -lua all.tex
+mylatexmk --lua cv_damien_robert_fr.tex
+mylatexmk --lua cv_damien_robert_en.tex
+mylatexmk --lua publications_damien_robert_fr.tex
+mylatexmk --lua publications_damien_robert_en.tex
+mylatexmk --lua scientific_activities_damien_robert_fr.tex
+mylatexmk --lua scientific_activities_damien_robert_en.tex
+mylatexmk --lua all.tex
 )
 #force regeneration
-touch ~/website/pro/src/{publications/index.*.page,publications/conferences.*.page,teaching/index.*.page,responsibilities.*.page,software.*.page}
+touch ~/website/pro/src/{publications/index.*.page,publications/conferences.*.page,teaching/index.*.page,responsibilities/index.*.page,software.*.page}
 ~/website/generate

@@ -2,7 +2,7 @@
 # vim: fdm=syntax
 
 require './parse'
-require 'dr/shell'
+require 'dr/sh'
 #Note sur \cventry:
 # usage : \cventry{years}{degree/job title}{institution/employer}{localization}{optional: grade/...}{optional: comment/job description}
 # Output is "Year" (marge) "Title" (bold), "Institution" (italic),
@@ -111,16 +111,16 @@ def main(type, **kwds)
 	case type
 	when :all
 		@biblio.each do |k,w|
-			r+="\\section{#{k}: #{Biblio.group_name(k, lang: :en,out: :string,**kwds)} / #{Biblio.group_name(k, lang: :fr,out: :string,**kwds)}}\n"
+			r+="\\section{#{k}: #{Biblio.group_name(k, out: :string,**kwds,lang: :en)} / #{Biblio.group_name(k, out: :string,**kwds)}}\n"
 			s=""
 			w.each do |a|
 				s+="\\item #{Biblio::tex_quote(a[:key].to_s)}:\\\\\n"
 				if Biblio::Categories[a[:group]][:type]==:publi
-					s+=a.out(out: :texbib, lang: :en, pre: "\\cite{#{Biblio.get_bib_key(a[:key],lang: :en,**kwds)}} ", post:'\\\\')
-					s+=a.out(out: :texbib, lang: :fr, pre: "\\cite{#{Biblio.get_bib_key(a[:key],lang: :fr,**kwds)}} ",post:'\\\\')
+					s+=a.out(out: :texbib, pre: "\\cite{#{Biblio.get_bib_key(a[:key],**kwds, lang: :en)}} ", post:'\\\\', lang: :en)
+					s+=a.out(out: :texbib, pre: "\\cite{#{Biblio.get_bib_key(a[:key],**kwds)}} ",post:'\\\\')
 				end
-				s+=a.out(lang: :en, pre:'', post:'\\\\', **kwds)
-				s+=a.out(lang: :fr, pre:'', post:'\\\\', **kwds)
+				s+=a.out(pre:'', post:'\\\\', **kwds, lang: :en)
+				s+=a.out(pre:'', post:'\\\\', **kwds)
 			end
 			#Hack: when extrainfo is set, we finish by '\end{itemize}\\' and
 			#latex errors out: There's no line here to end.
@@ -132,6 +132,9 @@ def main(type, **kwds)
 \printbibliography
 EOS
 	when :publi
+		r+=Biblio.process_group(groups,@biblio, **kwds)
+	when :activities
+		groups=Biblio.cv_bibgroups
 		r+=Biblio.process_group(groups,@biblio, **kwds)
 	when :cv
 		groups=Biblio.cv_bibgroups
@@ -272,6 +275,13 @@ def generate(type, **kwds)
 		when :fr
 			r+=header(:article,"Liste des publications", **kwds)
 		end
+	when :activities
+		case lang
+		when :en
+			r+=header(:article,"Scientific activities", **kwds)
+		when :fr
+			r+=header(:article,"Activités scientifiques", **kwds)
+		end
 	when :cv
 		case lang
 		when :en
@@ -300,6 +310,9 @@ def run
 	process(:publi,"publications_damien_robert_en", out: :texbib, lang: :en, **kwds)
 	process(:cv,"cv_damien_robert_fr", out: :texcv, lang: :fr, **kwds)
 	process(:cv,"cv_damien_robert_en", out: :texcv, lang: :en, **kwds)
+	#like for the cv but just the part about scientific activities
+	process(:activities,"scientific_activities_damien_robert_fr", out: :tex, lang: :fr, **kwds)
+	process(:activities,"scientific_activities_damien_robert_en", out: :tex, lang: :en, **kwds)
 end
 
 run

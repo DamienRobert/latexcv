@@ -20,7 +20,7 @@ The parsing is done by parse.rb, it is used by
 
 ## Copyright
 
-Copyright © 2014 Damien Robert
+Copyright © 2014–2017 Damien Robert
 
 MIT License. Obligatory warning:
 
